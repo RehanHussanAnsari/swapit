@@ -1,0 +1,95 @@
+<% layout("/layouts/boilerplate.ejs") -%> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>/* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Heading Styles */
+        .index-heading {
+            font-size: 2rem;
+            color: #343a40;
+            margin: 1rem 0;
+        }
+        
+        /* Card Styles */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .card-img-top {
+            object-fit: cover;
+            height: 15rem;
+        }
+        
+        .card-body {
+            padding: 1rem;
+        }
+        
+        .card-body p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Card Hover Effect */
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Link Styles */
+        .listing-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .row-cols-md-2 {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .row-cols-sm-1 {
+                margin-bottom: 1rem;
+            }
+        }
+        </style>
+</head>
+<body>
+    
+    <!-- <h1> <%=success%> </h1> -->
+    <%- include("./success.ejs"); %>
+    
+        <h2 class="index-heading">Fresh recommendations</h2>
+        <hr>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    
+            <%for(listing of listings){%>
+            <a href="/listing/<%=listing.id%>" class="listing-link">
+                <div class="card">
+                    <img src="<%=listing.image%>" class="card-img-top" style="height: 20rem;" alt="...">
+                    <!-- <div class="card-img-overlay"></div> -->
+                    <div class="card-body">
+                        <p><b><%=listing.title%></b></p>
+                        <p>(<%=listing.review.length%> review)</p>
+                    <p>&#8377 <%=listing.price.toLocaleString("en-IN")%></p>
+                    </div>
+                </div>
+            </a>
+              <%}%>
+</body>
+</html>
