@@ -62,6 +62,20 @@
             background-color: #0056b3;
         }
 
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
         .mb-4 {
             margin-bottom: 1.5rem;
         }
@@ -69,6 +83,11 @@
         .row > .col-md-6 {
             padding-right: 1rem;
             padding-left: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
         }
     </style>
 </head>
@@ -87,7 +106,7 @@
                             
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" id="confirmPassword" placeholder="Confirm your password" name="username" class="form-control" required>
+                                <input type="text" id="username" placeholder="Enter your username" name="username" class="form-control" required>
                             </div>
 
                             <div class="mb-3">
@@ -96,8 +115,10 @@
                                 <div class="invalid-feedback">Please enter a password!</div>
                             </div>
 
-
-                            <button type="submit" class="btn btn-primary mb-3">Login</button>
+                            <div class="btn-group mb-3">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                <a href="/signup" class="btn btn-secondary">Sign Up</a>
+                            </div>
                         </form>
                     </div>
                 </div>
